@@ -7,9 +7,10 @@
 // The MQTT topics that this device should publish/subscribe
 #define AWS_IOT_PUBLISH_TOPIC "esp32/pub"
 #define AWS_IOT_SUBSCRIBE_TOPIC "esp32/sub"
+#define PORT 8883
 
-WiFiClientSecure net = WiFiClientSecure();
-MQTTClient client = MQTTClient(256);
+WiFiClientSecure wifiClient = WiFiClientSecure();
+MQTTClient mqttClient = MQTTClient(256);
 
 void messageHandler(String &topic, String &payload)
 {
@@ -20,70 +21,75 @@ void messageHandler(String &topic, String &payload)
   //  const char* message = doc["message"];
 }
 
-void connectAWS()
+// Connect to the specified Wi-Fi network
+// Retries every 500
+void connect_wifi()
 {
-  WiFi.mode(WIFI_STA);
+  Serial.print("Attempting to connect to SSID: ");
+  Serial.print(WIFI_SSID);
+
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-
-  Serial.println("Connecting to Wi-Fi");
-
   while (WiFi.status() != WL_CONNECTED)
   {
+    Serial.print(".");
     delay(500);
-    Serial.print(".");
   }
+  Serial.println();
+}
 
+// Connect to the AWS MQTT message broker
+void connect_AWS_IoT_Core()
+{
   // Configure WiFiClientSecure to use the AWS IoT device credentials
-  net.setCACert(AWS_CERT_CA);
-  net.setCertificate(AWS_CERT_CRT);
-  net.setPrivateKey(AWS_CERT_PRIVATE);
+  wifiClient.setCACert(AWS_CERT_CA);
+  wifiClient.setCertificate(AWS_CERT_CRT);
+  wifiClient.setPrivateKey(AWS_CERT_PRIVATE);
 
-  // Connect to the MQTT broker on the AWS endpoint we defined earlier
-  client.begin(AWS_IOT_ENDPOINT, 8883, net);
+  // Connect to the MQTT broker on AWS
+  Serial.print("Attempting to AWS IoT Core message broker at mqtt:\\\\");
+  Serial.print(AWS_IOT_ENDPOINT);
+  Serial.print(":");
+  Serial.println(PORT);
 
-  // Create a message handler
-  client.onMessage(messageHandler);
-
-  Serial.print("Connecting to AWS IOT");
-
-  while (!client.connect(THINGNAME))
-  {
-    Serial.print(".");
-    delay(100);
+  mqttClient.begin(AWS_IOT_ENDPOINT, PORT, wifiClient);
+  while (!mqttClient.connect(THINGNAME)) {
+    Serial.print("Failed to connect to AWS IoT Core. Error code = ");
+    Serial.print(mqttClient.lastError());
+    Serial.println(". Retrying...");
+    delay(500);
   }
 
-  if (!client.connected())
-  {
-    Serial.println("AWS IoT Timeout!");
-    return;
-  }
-
-  // Subscribe to a topic
-  client.subscribe(AWS_IOT_SUBSCRIBE_TOPIC);
-
-  Serial.println("AWS IoT Connected!");
+  Serial.println("Connected to AWS IoT Core!");
+  mqttClient.subscribe(AWS_IOT_SUBSCRIBE_TOPIC);
 }
 
 void publishMessage()
 {
-  StaticJsonDocument<200> doc;
-  doc["time"] = millis();
-  doc["sensor_a0"] = analogRead(0);
+  StaticJsonDocument<200> jsonDoc;
+  jsonDoc["time"] = millis();
+  jsonDoc["sensor_a0"] = analogRead(0);
   char jsonBuffer[512];
-  serializeJson(doc, jsonBuffer); // print to client
+  serializeJson(jsonDoc, jsonBuffer); // print to client
 
-  client.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
+  mqttClient.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
 }
 
 void setup()
 {
-  Serial.begin(9600);
-  connectAWS();
+  // Initialise the serial port
+  Serial.begin(115200);
+
+  connect_wifi();
+
+  // Create a message handler
+  mqttClient.onMessage(messageHandler);
+
+  connect_AWS_IoT_Core();
 }
 
 void loop()
 {
   publishMessage();
-  client.loop();
+  mqttClient.loop();
   delay(1000);
 }
