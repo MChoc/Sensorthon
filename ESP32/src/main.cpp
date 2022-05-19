@@ -3,6 +3,7 @@
 #include <MQTTClient.h>
 #include <ArduinoJson.h>
 #include "WiFi.h"
+#include <M5Core2.h>
 
 // The MQTT topics that this device should publish/subscribe
 #define AWS_IOT_PUBLISH_TOPIC "esp32/pub"
@@ -12,14 +13,19 @@
 WiFiClientSecure wifiClient = WiFiClientSecure();
 MQTTClient mqttClient = MQTTClient(256);
 
-void messageHandler(String &topic, String &payload)
-{
-  Serial.println("incoming: " + topic + " - " + payload);
+float accX = 0.0F;
+float accY = 0.0F;
+float accZ = 0.0F;
 
-  //  StaticJsonDocument<200> doc;
-  //  deserializeJson(doc, payload);
-  //  const char* message = doc["message"];
-}
+float gyroX = 0.0F;
+float gyroY = 0.0F;
+float gyroZ = 0.0F;
+
+float pitch = 0.0F;
+float roll = 0.0F;
+float yaw = 0.0F;
+
+float temp = 0.0F;
 
 // Connect to the specified Wi-Fi network
 // Retries every 500
@@ -37,9 +43,29 @@ void connect_wifi()
   Serial.println();
 }
 
+void initialise_M5()
+{
+  M5.begin();
+  M5.IMU.Init();
+  M5.Lcd.setTextColor(GREEN, BLACK);
+  M5.Lcd.setTextSize(2);
+}
+
+void messageHandler(String &topic, String &payload)
+{
+  Serial.println("incoming: " + topic + " - " + payload);
+
+  //  StaticJsonDocument<200> doc;
+  //  deserializeJson(doc, payload);
+  //  const char* message = doc["message"];
+}
+
 // Connect to the AWS MQTT message broker
 void connect_AWS_IoT_Core()
 {
+  // Create a message handler
+  mqttClient.onMessage(messageHandler);
+
   // Configure WiFiClientSecure to use the AWS IoT device credentials
   wifiClient.setCACert(AWS_CERT_CA);
   wifiClient.setCertificate(AWS_CERT_CRT);
@@ -63,11 +89,51 @@ void connect_AWS_IoT_Core()
   mqttClient.subscribe(AWS_IOT_SUBSCRIBE_TOPIC);
 }
 
+void setIMUValues()
+{
+  // Get accelerometer values
+  M5.IMU.getAccelData(&accX, &accY, &accZ);
+  M5.Lcd.setCursor(0, 20);
+  M5.Lcd.printf("accX,   accY,  accZ");
+  M5.Lcd.setCursor(0, 42);
+  M5.Lcd.printf("%5.2f  %5.2f  %5.2f G", accX, accY, accZ);
+
+  // Get gryoscope values
+  M5.IMU.getGyroData(&gyroX, &gyroY, &gyroZ);
+  M5.Lcd.setCursor(0, 70);
+  M5.Lcd.printf("gyroX,  gyroY, gryoZ");
+  M5.Lcd.setCursor(0, 92);
+  M5.Lcd.printf("%6.2f %6.2f%6.2f o/s", gyroX, gyroY, gyroZ);
+
+  // Get spatial values
+  M5.IMU.getAhrsData(&pitch, &roll, &yaw);
+  M5.Lcd.setCursor(0, 120);
+  M5.Lcd.printf("pitch,  roll,  yaw");
+  M5.Lcd.setCursor(0, 142);
+  M5.Lcd.printf("%5.2f %5.2f  %5.2f deg", pitch, roll, yaw);
+
+  // Get temperature value
+  M5.IMU.getTempData(&temp);
+  M5.Lcd.setCursor(0, 175);
+  M5.Lcd.printf("Temperature : %.2f C", temp);
+}
+
 void publishMessage()
 {
+  setIMUValues();
+
   StaticJsonDocument<200> jsonDoc;
   jsonDoc["time"] = millis();
-  jsonDoc["sensor_a0"] = analogRead(0);
+  jsonDoc["accX"] = accX;
+  jsonDoc["accY"] = accY;
+  jsonDoc["accZ"] = accZ;
+  jsonDoc["gyroX"] = gyroX;
+  jsonDoc["gyroY"] = gyroY;
+  jsonDoc["gyroZ"] = gyroZ;
+  jsonDoc["pitch"] = pitch;
+  jsonDoc["roll"] = roll;
+  jsonDoc["yaw"] = yaw;
+  jsonDoc["temp"] = temp;
   char jsonBuffer[512];
   serializeJson(jsonDoc, jsonBuffer); // print to client
 
@@ -79,11 +145,8 @@ void setup()
   // Initialise the serial port
   Serial.begin(115200);
 
+  initialise_M5();
   connect_wifi();
-
-  // Create a message handler
-  mqttClient.onMessage(messageHandler);
-
   connect_AWS_IoT_Core();
 }
 
@@ -91,5 +154,5 @@ void loop()
 {
   publishMessage();
   mqttClient.loop();
-  delay(1000);
+  delay(5000);
 }
