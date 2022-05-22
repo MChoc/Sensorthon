@@ -3,11 +3,11 @@
 #define SECRET
 #define THINGNAME ""
 
-const char WIFI_SSID[] = "MobileAnywhere";
-const char WIFI_PASSWORD[] = "tF7Vvg6hj=1~";
+// const char WIFI_SSID[] = "MobileAnywhere";
+// const char WIFI_PASSWORD[] = "tF7Vvg6hj=1~";
 
-// const char WIFI_SSID[] = "OPTUS_385454";
-// const char WIFI_PASSWORD[] = "gemmymiffy66521";
+const char WIFI_SSID[] = "OPTUS_385454";
+const char WIFI_PASSWORD[] = "gemmymiffy66521";
 const char AWS_IOT_ENDPOINT[] = "a32fszd62t1lta-ats.iot.ap-southeast-2.amazonaws.com";
 
 // Amazon Root CA 1
