@@ -8,12 +8,11 @@ void setup()
 {
   Serial.begin(115200);
   M5.begin();
-  M5.IMU.Init();
 }
 
 void loop()
 {
-  for (int z = 0; z < 13; z++)
+  for (int z = 0; z < 12; z++)
   {
     for (int y = 0; y < 64; y++)
     {

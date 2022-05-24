@@ -803,5 +803,4 @@ static const char ** frames[] = {
 	frame9,
 	frame10,
 	frame11,
-	NULL
 };
