@@ -41,7 +41,8 @@ void audioTask(void *pvParameters)
     else
     {
       Serial.println("WAV finished playing");
-      delay(1000);
+      wav->stop();
+      wav->begin(id3, out);
     }
   }
 }
