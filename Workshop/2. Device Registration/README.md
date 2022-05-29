@@ -16,5 +16,5 @@
 10. Check the provided Sensorthon_EduKit_Policy
 11. Click "Create thing"
 ![Register_Thing_Policy](/Workshop/2.%20Device%20Registration/Register_Thing_Policy.png)
-12. Download all 5 certificates and save them in your project workspace (these will be needed later to communicate securely with AWS IoT Core)
+12. Download all 5 certificates and save them in your project workspace (these will be needed later to communicate securely with AWS IoT Core). When downloading, rename the certificates according to the naming scheme below. We will be referring to them by these names in further workshops.
 ![Certificates](/Workshop/2.%20Device%20Registration/Certificates.png)
