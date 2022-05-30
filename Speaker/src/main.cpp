@@ -12,30 +12,31 @@ extern const unsigned char previewR[120264];
 
 #define Speak_I2S_NUMBER I2S_NUM_0
 
-bool InitI2SSpeaker()
+#define SAMPLE_RATE 44100
+#define BITS_PER_SAMPLE I2S_BITS_PER_SAMPLE_16BIT
+
+void I2SSpeakerInit()
 {
   esp_err_t err = ESP_OK;
 
-  // Uninstall the driver so we an make configuration changes
-  i2s_driver_uninstall(Speak_I2S_NUMBER);
   i2s_config_t i2s_config = {
       .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_TX),
-      .sample_rate = 44100,                         // Sample rate in Hz
-      .bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT, // Sampling rate in bits
-      .channel_format = I2S_CHANNEL_FMT_ALL_RIGHT,  // Channel format
-      .communication_format = I2S_COMM_FORMAT_I2S,  // Communication format/protocol
-      .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,     // Interrupt level
-      .dma_buf_count = 2,                           // Direct memory access buffer
-      .dma_buf_len = 128,                           // Direct memory access length
-      .use_apll = false,                            // Use AAPL clock
-      .tx_desc_auto_clear = true,                   // Auto clear tx descriptor if there is underflow
+      .sample_rate = SAMPLE_RATE,                           // Sample rate in Hz
+      .bits_per_sample = BITS_PER_SAMPLE,                   // Sampling rate in bits
+      .channel_format = I2S_CHANNEL_FMT_ALL_RIGHT,          // Channel format
+      .communication_format = I2S_COMM_FORMAT_I2S,          // Communication format/protocol
+      .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,             // Interrupt level
+      .dma_buf_count = 2,                                   // Direct memory access buffer
+      .dma_buf_len = 128,                                   // Direct memory access length
+      .use_apll = false,                                    // Use AAPL clock
+      .tx_desc_auto_clear = true,                           // Auto clear tx descriptor if there is underflow
 
   };
 
   // Install driver with new settings
   err += i2s_driver_install(Speak_I2S_NUMBER, &i2s_config, 0, NULL);
 
-  // Define pin configuration for speaker
+  // Define pin configuration for speaker and clock
   i2s_pin_config_t tx_pin_config = {
     .bck_io_num = CONFIG_I2S_BCK_PIN,
     .ws_io_num = CONFIG_I2S_LRCK_PIN,
@@ -44,9 +45,7 @@ bool InitI2SSpeaker()
 
   };
   err += i2s_set_pin(Speak_I2S_NUMBER, &tx_pin_config);
-  err += i2s_set_clk(Speak_I2S_NUMBER, 44100, I2S_BITS_PER_SAMPLE_16BIT, I2S_CHANNEL_MONO);
-
-  return true;
+  err += i2s_set_clk(Speak_I2S_NUMBER, SAMPLE_RATE, BITS_PER_SAMPLE, I2S_CHANNEL_MONO);
 }
 
 void displayInit()
@@ -64,7 +63,7 @@ void displayInit()
 void speakInit()
 {
   M5.Axp.SetSpkEnable(true);
-  InitI2SSpeaker();
+  I2SSpeakerInit();
 }
 
 // Play the sound by writing via I2S
