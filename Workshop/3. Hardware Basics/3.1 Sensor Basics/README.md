@@ -6,6 +6,8 @@ The following outlines a brief summary of the various sensor types each particip
 
 Further sensor recommendations not included in the base kit will be shown in a list at the end of this file, however these devices may be considered out of support scope, so please keep that in mind when considering usage of the suggested sensors.
 
+****
+
 ## Temperature & Humidity Sensor
 
 ![DHT-Sensor](/Workshop/3.%20Hardware%20Basics/3.1%20Sensor%20Basics/DHT11/DHT11-Sensor.jpeg)
