@@ -30,7 +30,6 @@ void I2SSpeakerInit()
       .dma_buf_len = 128,                                   // Direct memory access length
       .use_apll = false,                                    // Use AAPL clock
       .tx_desc_auto_clear = true,                           // Auto clear tx descriptor if there is underflow
-
   };
 
   // Install driver with new settings
