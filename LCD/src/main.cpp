@@ -1,83 +1,54 @@
-#include <Arduino.h>
 #include <M5Core2.h>
-#include "animation.h"
-
-#define SCALE 3
 
 void setup()
 {
-  Serial.begin(115200);
-  M5.begin();
+    M5.begin();
+
+    // Fill the screen with white
+    M5.Lcd.fillScreen(WHITE);
+
+    // Set the text colour to be black
+    // Set the background of the text to be white
+    M5.Lcd.setTextColor(BLACK, WHITE);
+
+    // Text size can be set at multiples of 10
+    // E.g. text size of 2 means 20 pixels down in the y direction
+    // The screen has a size of 320 across, 240 down
+    M5.Lcd.setTextSize(2);
+
+    // Set the cursor to start printing at the specified coordinates
+    M5.Lcd.setCursor(100, 100);
+    M5.Lcd.printf("Hello world!");
+    M5.Lcd.setCursor(100, 120);
+    M5.Lcd.printf("Hello world!");
+
+    // Clear the screen to white
+    delay(1000);
+    M5.Lcd.clear(WHITE);
+
+    // Draw rectangle outline at (100, 100) of size 50x50
+    // Draw filled in rectangle
+    M5.Lcd.drawRect(100, 100, 50, 50, RED);
+    delay(1000);
+    M5.Lcd.fillRect(100, 100, 50, 50, GREEN);
+    delay(1000);
+
+    // Draw circle at (100, 100) with radius 50
+    // Draw filled in circle
+    M5.Lcd.drawCircle(100, 100, 50, BLUE);
+    delay(1000);
+    M5.Lcd.fillCircle(100, 100, 50, ORANGE);
+    delay(1000);
+
+    // Draw triangle with vertices at (30, 30), (50, 50), (100, 100)
+    // Draw filled in triangle
+    M5.Lcd.drawTriangle(160, 10, 10, 230, 230, 230, YELLOW);
+    delay(1000);
+    M5.Lcd.fillTriangle(160, 10, 10, 230, 230, 230, PURPLE);
+    delay(1000);
 }
 
 void loop()
 {
-  for (int z = 0; z < 12; z++)
-  {
-    for (int y = 0; y < 64; y++)
-    {
-      for (int x = 0; x < 64; x++)
-      {
-        char ch = frames[z][y][x];
-        int colour = 0x0000;
-        if (ch == ',')
-        {
-          colour = 0x000B;
-        }
-        else if (ch == '\'')
-        {
-          colour = 0x0000;
-        }
-        else if (ch == '*')
-        {
-          colour = 0x5ACB;
-        }
-        else if (ch == '.')
-        {
-          colour = 0xFFFF;
-        }
-        else if (ch == '%')
-        {
-          colour = 0xD435;
-        }
-        else if (ch == '@')
-        {
-          colour = 0xFFFA;
-        }
-        else if (ch == '$')
-        {
-          colour = 0xD435;
-        }
-        else if (ch == '-')
-        {
-          colour = 0xD010;
-        }
-        else if (ch == '>')
-        {
-          colour = 0xF800;
-        }
-        else if (ch == '&')
-        {
-          colour = 0xFD60;
-        }
-        else if (ch == '+')
-        {
-          colour = 0xFFE0;
-        }
-        else if (ch == '#')
-        {
-          colour = 0x87E0;
-        }
-        else if (ch == '=')
-        {
-          colour = 0x043F;
-        }
-        else if (ch == ';')
-        {
-          colour = 0x0015;
-        }
-        M5.Lcd.fillRect(x * SCALE, y * SCALE, SCALE, SCALE, colour);
-      }
-    }
-  }
+
 }
