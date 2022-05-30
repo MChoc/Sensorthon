@@ -37,6 +37,16 @@ Experience with Git and Github will be helpful for you when navigating and using
 7. Choose a location to save the project
 ![PlatformIO_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_2.png)
 
+## Opening a 
+
+1. Click on the PlatformIO extension icon
+2. Open the PlatformIO homepage
+3. Click on "Home"
+4. Click on "Open Project"
+5. Navigate to where you created/saved your project or open one of the examples
+![PlatformIO_Open_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_1.png)
+![PlatformIO_Open_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_project_2.png)
+
 ## Determining your device
 
 1. Click on the PlatformIO icon in the side bar
@@ -76,6 +86,7 @@ Useful tasks
 
 1. Unzip the library you have downloaded
 2. Move the folder into the lib folder
+3. VSCode may not immediately recognise your library but after you run build once, it should be able to provide all the features of IntelliSense
 ```
 project
 |   include
