@@ -7,8 +7,9 @@
 #include "WiFi.h"
 
 // The MQTT topics that this device should publish/subscribe to
-#define AWS_IOT_PUBLISH_TOPIC "esp32/pub"
-#define AWS_IOT_SUBSCRIBE_TOPIC "esp32/sub"
+#define AWS_IOT_PUBLISH_TOPIC AWS_IOT_PUBLISH_TOPIC_THING
+#define AWS_IOT_SUBSCRIBE_TOPIC AWS_IOT_SUBSCRIBE_TOPIC_THING
+
 #define PORT 8883
 
 WiFiClientSecure wifiClient = WiFiClientSecure();
@@ -73,7 +74,7 @@ void connectAWSIoTCore()
   // Connect to AWS MQTT message broker
   // Retries every 500ms
   mqttClient.begin(AWS_IOT_ENDPOINT, PORT, wifiClient);
-  while (!mqttClient.connect(THINGNAME)) {
+  while (!mqttClient.connect(THINGNAME.c_str())) {
     Serial.print("Failed to connect to AWS IoT Core. Error code = ");
     Serial.print(mqttClient.lastError());
     Serial.println(". Retrying...");
@@ -82,7 +83,7 @@ void connectAWSIoTCore()
   Serial.println("Connected to AWS IoT Core!");
 
   // Subscribe to the topic on AWS IoT
-  mqttClient.subscribe(AWS_IOT_SUBSCRIBE_TOPIC);
+  mqttClient.subscribe(AWS_IOT_SUBSCRIBE_TOPIC.c_str());
 }
 
 void setup() {
@@ -103,8 +104,11 @@ void loop() {
   char jsonBuffer[512];
   serializeJson(jsonDoc, jsonBuffer);
 
+  Serial.print("Publishing: ");
+  Serial.println(jsonBuffer);
+
   // Publish json to AWS IoT Core
-  mqttClient.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
+  mqttClient.publish(AWS_IOT_PUBLISH_TOPIC.c_str(), jsonBuffer);
   mqttClient.loop();
 
   delay(5000);
