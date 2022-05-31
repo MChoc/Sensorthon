@@ -25,19 +25,10 @@ We have stored all our sample code on Github at https://github.com/MChoc/Sensort
 
 Experience with Git and Github will be helpful for you when navigating and using our sample code. After cloning the repository, you will need to open each folder separately in VSCode to allow the PlatformIO extensions to detect the project.
 
-## Creating a new project
+If you know how to use Git, clone the repo to your local. Else, go to the above github link and download the file as a zip and unzip it.
+![Github](/Workshop/1.%20Environment%20Setup/Github.png)
 
-1. Select the PlatformIO icon on the side bar of VSCode
-2. Click open on the PlatformIO menu
-3. Click "New Project"
-![PlatformIO_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_1.png)
-4. Give your project a name
-5. Choose M5Stack Core2 for the Board (if there are multiple just choose any one)
-6. Choose the Arduino Framework
-7. Choose a location to save the project
-![PlatformIO_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_2.png)
-
-## Opening a 
+## Opening a project
 
 1. Click on the PlatformIO extension icon
 2. Open the PlatformIO homepage
@@ -71,6 +62,18 @@ Useful tasks
 * Clean - deletes your build
 * Clean All - deletes your build and all builds in dependency builds
 * Erase Flash - deletes the current program from your device
+
+## Creating a new project
+
+1. Select the PlatformIO icon on the side bar of VSCode
+2. Click open on the PlatformIO menu
+3. Click "New Project"
+![PlatformIO_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_1.png)
+4. Give your project a name
+5. Choose M5Stack Core2 for the Board (if there are multiple just choose any one)
+6. Choose the Arduino Framework
+7. Choose a location to save the project
+![PlatformIO_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_2.png)
 
 ## Downloading other libraries
 
