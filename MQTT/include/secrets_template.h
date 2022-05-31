@@ -7,7 +7,7 @@
 
 #define SECRET
 // THINGNAME should be in the format EduKit_TEAMNAME
-// where TEAMNAME is the name of your team
+// where TEAMNAME is the name of your team you used to register
 static const String THINGNAME = "EduKit_TEAMNAME";
 static const String AWS_IOT_PUBLISH_TOPIC_THING = THINGNAME + "/pub";
 static const String AWS_IOT_SUBSCRIBE_TOPIC_THING = THINGNAME +  "/sub";
