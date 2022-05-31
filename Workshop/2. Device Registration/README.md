@@ -7,7 +7,7 @@
 4. Click on the "Manage" link
 5. Click "Create thing"
 ![IoT_Core_Manage](/Workshop/2.%20Device%20Registration/IoT_Core_Manage.png)
-6. Give your thing the name in the format "EduKit_TEAMNAME", replaceing TEAMNAME with your teams name, and leave all other options as default
+6. Give your thing the name in the format "EduKit_TEAMNAME", replaceing TEAMNAME with your teams name you used to register. Leave all other options as default
 7. Click next
 ![Register_Thing_Name](/Workshop/2.%20Device%20Registration/Register_Thing_Name.png)
 8. Choose "Auto-generate a new certificate"
