@@ -23,20 +23,10 @@ Go here https://code.visualstudio.com/download and download the appropriate vers
 
 We have stored all our sample code on Github at https://github.com/MChoc/Sensorthon.
 
-Experience with Git and Github will be helpful for you when navigating and using our sample code. After cloning the repository, you will need to open each folder separately in VSCode to allow the PlatformIO extensions to detect the project.
+Experience with Git and Github will be helpful for you when navigating and using our sample code. After cloning the repository, you will need to open each folder separately via the PlatformIO homepage in VSCode to allow the PlatformIO extensions to detect the project.
 
 If you know how to use Git, clone the repo to your local. Else, go to the above github link and download the file as a zip and unzip it.
 ![Github](/Workshop/1.%20Environment%20Setup/Github.png)
-
-## Opening a project
-
-1. Click on the PlatformIO extension icon
-2. Open the PlatformIO homepage
-3. Click on "Home"
-4. Click on "Open Project"
-5. Navigate to where you created/saved your project or open one of the examples
-![PlatformIO_Open_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_1.png)
-![PlatformIO_Open_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_project_2.png)
 
 ## Determining your device
 
@@ -45,6 +35,16 @@ If you know how to use Git, clone the repo to your local. Else, go to the above 
 3. Click "Devices" on the PlatformIO homepage
 4. To determine which port your device is located at, you can disconnect your device, click refresh and then reconnect your device to see what the differences are. In the below example, mine is /dev/cu.SLAB_USBtoUART. This will be important when uploading your program to the device.
 ![PlatformIO_Devices](/Workshop/1.%20Environment%20Setup/PlatformIO_Devices.png)
+
+## Opening a project
+
+1. Click on the PlatformIO extension icon
+2. Open the PlatformIO homepage
+3. Click on "Home"
+4. Click on "Open Project"
+5. Navigate to where you created/saved your project and open one of the examples
+![PlatformIO_Open_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_1.png)
+![PlatformIO_Open_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_project_2.png)
 
 ## Building and running
 
