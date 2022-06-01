@@ -6,15 +6,17 @@
 #include <pgmspace.h>
 
 #define SECRET
-// THINGNAME should be in the format EduKit_TEAMNAME
-// where TEAMNAME is the name of your team you used to register
-static const String THINGNAME = "EduKit_TEAMNAME";
-static const String AWS_IOT_PUBLISH_TOPIC_THING = THINGNAME + "/pub";
-static const String AWS_IOT_SUBSCRIBE_TOPIC_THING = THINGNAME +  "/sub";
+
+// Fill in TEAMNAME with the name of your team you used to
+static const String TEAMNAME = "";
 
 // Fill in your wifi settings here
 const char WIFI_SSID[] = "";
 const char WIFI_PASSWORD[] = "";
+
+static const String THINGNAME = "EduKit_" + TEAMNAME;
+static const String AWS_IOT_PUBLISH_TOPIC_THING = THINGNAME + "/pub";
+static const String AWS_IOT_SUBSCRIBE_TOPIC_THING = THINGNAME +  "/sub";
 const char AWS_IOT_ENDPOINT[] = "a2fk4jnz30nap8-ats.iot.ap-southeast-2.amazonaws.com";
 
 // Fill in the below by copying the contents

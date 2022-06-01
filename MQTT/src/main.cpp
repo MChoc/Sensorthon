@@ -101,16 +101,17 @@ void loop() {
   // Initialise json object and print
   StaticJsonDocument<200> jsonDoc;
   jsonDoc["time"] = millis();
-  jsonDoc["team"] = THINGNAME;
+  jsonDoc["team"] = TEAMNAME;
   char jsonBuffer[512];
   serializeJson(jsonDoc, jsonBuffer);
 
-  Serial.print("Publishing: ");
+  Serial.print("Publishing to " + AWS_IOT_PUBLISH_TOPIC + ": ");
   Serial.println(jsonBuffer);
 
   // Publish json to AWS IoT Core
   mqttClient.publish(AWS_IOT_PUBLISH_TOPIC.c_str(), jsonBuffer);
   mqttClient.loop();
 
-  delay(5000);
+  // Send a message every 60 seconds
+  delay(60000);
 }
