@@ -22,6 +22,10 @@ The following sample how to connect the DHT11 to the Edukit M5 Stack Core 2 devi
 
 ![Edukit-PortB-Grove-Connected](Edukit_Grove_connector.jpg)
 
+**BreadBoard Explanation:**
+
+![Breadboard-Explanation](Circuit_Connections.png)
+
 For Steps 3 to 5, the image below is a overarching connection diagram to the breadboard. Each step will show the intended result on the breadboard.
 
 ![Breadboard-Circuit-Sample](Circuit_Options.png)
