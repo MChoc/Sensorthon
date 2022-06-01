@@ -43,7 +43,7 @@ If you know how to use Git, clone the repo to your local. Else, go to the above 
 3. Click on "Home"
 4. Click on "Open Project" and navigate to where you created/saved your project and open one of the examples
 ![PlatformIO_Open_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_1.png)
-![PlatformIO_Open_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_project_2.png)
+![PlatformIO_Open_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_2.png)
 5. After opening the project, ensure that PlatformIO has been able to detect your project by checking that the name in brackets after "Default" is the name of your project
 6. Ensure that before running tasks the name of the tasks is the same as defined in your "platformio.ini" file
 ![PlatformIO_Open_Project_3](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_3.png)
