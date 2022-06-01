@@ -101,6 +101,7 @@ void loop() {
   // Initialise json object and print
   StaticJsonDocument<200> jsonDoc;
   jsonDoc["time"] = millis();
+  jsonDoc["team"] = THINGNAME;
   char jsonBuffer[512];
   serializeJson(jsonDoc, jsonBuffer);
 
