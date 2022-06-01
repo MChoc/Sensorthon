@@ -4,7 +4,7 @@ The following sample how to connect the DHT11 to the Edukit M5 Stack Core 2 devi
 
 ***
 
-## What you need:
+## What you need
 
 - 1x Breadboard
 - 1x Edukit Device
@@ -54,7 +54,7 @@ For Steps 3 to 5, the image below is a overarching connection diagram to the bre
 
 ![Sensor-In-Breadboard](Sensor_In_Breadboard.jpg)
 
-5. Grabbing the jumper wire kit, in the pil of smaller wires, grab two wires of approx 1cm or less length and connect them as the table below:
+5. Grabbing the jumper wire kit, in the pile of smaller wires, grab two wires of approx 1cm or less length and connect them as the table below:
 
 **Jumper Wires on breadboard:**
 |Breadboard hole 1|Breadboard hole 2|
@@ -63,3 +63,8 @@ For Steps 3 to 5, the image below is a overarching connection diagram to the bre
 |Row 21 between Column F to L (not taken by previous connections)|Positive Column or Red Rail holes(not taken by previous connections)|
 
 ![Jumper-Wire-Connections](Jumper_connections.jpg)
+
+
+Completed Wiring Setup:
+
+![Completed-Circuit-Diagram](Completed_Circuit.jpg)
