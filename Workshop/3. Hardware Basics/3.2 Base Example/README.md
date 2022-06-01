@@ -14,11 +14,11 @@ The following sample how to connect the DHT11 to the Edukit M5 Stack Core 2 devi
 
 ***
 
-1. Grab the Edukit device and make sure the top and bottom parts are secured to each other (the 4 screws should be fastened to the device)
+1. Grab the Edukit device and make sure the top and bottom parts are secured to each other (the 4 screws should be fastened to the device). Note that the screw lengths on the top are different from the bottom screwes, so make sure to keep track of where each screw originally was placed.
 
 ![Edukit-Bottom-Housing-Secured](Sealed_Edukit.jpg)
 
-2. Grab the grove connector cable and connect the connector's female port into PORT B of the Edukit device. Port B is the top left port when looking at the Edukit device from top down (with the three circular buttons facing you). This port is also labelled with a "Port B" label. A correct connection can be shown as the black cable being the left most cable.
+2. Grab the grove connector cable and connect the connector's female port into PORT B of the Edukit device. Port B is the black port on top left when looking at the Edukit device from top down (with the three circular buttons facing you). This port is also labelled with a "Port B" label. A correct connection can be shown as the black cable being the left most cable.
 
 ![Edukit-PortB-Grove-Connected](Edukit_Grove_connector.jpg)
 

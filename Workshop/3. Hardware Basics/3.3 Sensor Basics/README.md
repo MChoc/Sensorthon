@@ -10,7 +10,7 @@ Further sensor recommendations not included in the base kit will be shown in a l
 
 ## Temperature & Humidity Sensor
 
-![DHT-Sensor](/Workshop/3.%20Hardware%20Basics/3.1%20Sensor%20Basics/DHT11/DHT11-Sensor.jpeg)
+![DHT-Sensor](../3.3%20Sensor%20Basics/DHT11/DHT11-Sensor.jpeg)
 
 - DHT11 Temperature and Humidity Sensor
 - Breakout module, compatible with multiple embedded development boards:
@@ -25,7 +25,7 @@ Further sensor recommendations not included in the base kit will be shown in a l
 
 ## Flame Sensor
 
-![DFR0076-Flame-Sensor](/Workshop/3.%20Hardware%20Basics/3.1%20Sensor%20Basics/DFR0076-Flame-Sensor/DFR-0076-Flame_sensor.jpeg)
+![DFR0076-Flame-Sensor](../3.3%20Sensor%20Basics/DFR0076-Flame-Sensor/DFR-0076-Flame_sensor.jpeg)
 
 - DFR0076 Flame Sensor
 - Breakout module, compatible with multiple embedded development boards:
@@ -39,7 +39,7 @@ Further sensor recommendations not included in the base kit will be shown in a l
 
 ## Smoke Sensor
 
-![MQ-2-Smoke-Sensor](/Workshop/3.%20Hardware%20Basics/3.1%20Sensor%20Basics/MQ-2-Smoke-Sensor/MQ-2-smoke-detector.jpeg)
+![MQ-2-Smoke-Sensor](../3.3%20Sensor%20Basics/MQ-2-Smoke-Sensor/MQ-2-smoke-detector.jpeg)
 
 - MQ-2 Smoke Sensor Breakout module
 - Breakout module, compatible with multiple embedded development boards:
@@ -60,7 +60,7 @@ Further sensor recommendations not included in the base kit will be shown in a l
 
 ## Water Detection Sensor
 
-![Adafruit-4965-Water-Sensor](/Workshop/3.%20Hardware%20Basics/3.1%20Sensor%20Basics/ADA4965-Water-Sensor/ADA4965-Water-Sensor.jpeg)
+![Adafruit-4965-Water-Sensor](../3.3%20Sensor%20Basics/ADA4965-Water-Sensor/ADA4965-Water-Sensor.jpeg)
 
 - ADA4965 Water Detection Sensor
 - Breakout module, compatible with multiple embedded development boards:
@@ -75,7 +75,7 @@ Further sensor recommendations not included in the base kit will be shown in a l
 
 ## Motion Sensor
 
-![XC4444-Motion-Detector-Sensor](/Workshop/3.%20Hardware%20Basics/3.1%20Sensor%20Basics/XC4444-Motion-Sensor/XC4444-Motion-Detector.jpeg)
+![XC4444-Motion-Detector-Sensor](../3.3%20Sensor%20Basics/XC4444-Motion-Sensor/XC4444-Motion-Detector.jpeg)
 
 - AXC4444 Motion Detection Sensor
 - Breakout module, compatible with multiple embedded development boards:
@@ -90,7 +90,7 @@ Further sensor recommendations not included in the base kit will be shown in a l
 
 ## Magnetic Sensor
 
-![Sparkfun-COM-13247-Magnetic-Door-Switch](/Workshop/3.%20Hardware%20Basics/3.1%20Sensor%20Basics/COM-13247-Magnetic-Door-set/COM-13247-Magnetic-Door-Switch-Set.jpeg)
+![Sparkfun-COM-13247-Magnetic-Door-Switch](../3.3%20Sensor%20Basics/COM-13247-Magnetic-Door-set/COM-13247-Magnetic-Door-Switch-Set.jpeg)
 
 - COM-13247 Magnetic Door Switch
 - Switch kit compatible with multiple embedded development boards:
