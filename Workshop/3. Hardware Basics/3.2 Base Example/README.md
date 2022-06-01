@@ -37,7 +37,7 @@ For Steps 3 to 5, the image below is a overarching connection diagram to the bre
 |---|---|
 |Ground or GND (Negative) (Black)|Negative Column or Blue Rail holes|
 |5V or VCC (Positive) (Red)|Positive Column or Red Rail holes|
-|Signal Pins (Data Pins) (White)|Row 23 between Column F to L|
+|Signal Pins (Data Pins) (White)|Row 23 between Column G to L|
 
 ![Grove-Cables-To-Breadboard](Grove_To_Breadboard.jpg)
 
@@ -46,9 +46,11 @@ For Steps 3 to 5, the image below is a overarching connection diagram to the bre
 **Sensor pin connections:**
 |Sensor Pins|Breadboard Value|
 |---|---|
-|Signal Pin (Closest to S)|Row 23 between Column F to L (Whichever hasn't been plugged in by Edukit)|
-|VCC Pin (Positive)|Row 22 between Column F to L|
-|Ground Pin (Negative|Row 21 between Column F to L|
+|Signal Pin (Closest to S)|Row 23 between Column G to L (Whichever hasn't been plugged in by Edukit)|
+|VCC Pin (Positive)|Row 22 between Column G to L|
+|Ground Pin (Negative|Row 21 between Column G to L|
+
+![Sensor-Pinout](../3.3%20Sensor%20Basics/DHT11/DHT11-Sensor-Pinout.jpeg)
 
 ![Sensor-In-Breadboard](Sensor_In_Breadboard.jpg)
 
