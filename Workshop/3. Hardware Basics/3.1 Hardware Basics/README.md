@@ -2,9 +2,9 @@
 
 The following outlines important information regarding the usage of various devices required for successful connections and device setup to sensor equipment. This information includes:
 
-- Breadboard layout information
-- M5Stack Core 2 Edukit device port layout
-- Sample Connection from Edukit to Sensor
+- General circuit explanation
+- Edukit explanation
+- Breadboard explanation
 
 ****
 
@@ -20,28 +20,6 @@ The following outlines important information regarding the usage of various devi
   - Allow signals to be sent to and from the sensors to the boards to be used for other purposes
 - Think of the Edukit as the parent board which will power all subsequent children devices and obtain and provide relevant data and information
 - The flow of electrical energy through devices is seen as positive to negative, and therefore when completing the setup for devices, remember that any connected device must have one port connected to a positive, and one connected to a negative
-
-## Breadboard layout
-
-The breadboard is the primary equipment to assist in connecting devices together in a IoT development environment. The breadboard will allow the main controller device to have it's power connections smoothly passed to the child devices such as sensors, LED's, and other external devices.
-
-The image below highlights the important information for every breadboard:
-
-- The two side rails in blue are considered the power railings
-  - The holes extend vertically down the entire side of the breadboard
-  - The two sides do not connect unless manually wired together  
-  - **The convention is:**
-    - **Positive = 5V or VCC**
-    - **Negative = Ground or GND**
-
-- The main holes in green are considered the standard connection points
-  - The holes extend horizontally until the the break in the middle (the red line)
-  - Each row of holes, noted by the number next to each, will represent the same inputted value
-    - E.g. If 5V is connected to one of the holes, all hole in that row will have 5V value (this is not limited to only 5V)
-
-- To connect any of the hole connections together, any wire plugged into two different pin hole connections will link them, including over the break gap (red line)
-
-![Breadboard-Explanation](Breadboard1.jpeg)
 
 ## Edukit/M5 Stack Core 2
 
@@ -92,13 +70,25 @@ The provided grove cable colours refer to the following ports:
 - White = PIN 26 or Digital Signal
 - Yellow = PIN 36 or Analog Signal
 
-## Base example
+## Breadboard layout
 
-- Go through connecting temp humidity with them
-- Remeber to connect posi and negi to rail
-- Place sensor somewhere on breadboard, vertically
-- Now connect pins to requisie lines (posi, negi, and signal)
-- How to load code from one of code bases
+The breadboard is the primary equipment to assist in connecting devices together in a IoT development environment. The breadboard will allow the main controller device to have it's power connections smoothly passed to the child devices such as sensors, LED's, and other external devices.
 
+The image below highlights the important information for every breadboard:
 
-- DIAGRAM OF WHOLE CONNECTIONS
+- The two side rails in blue are considered the power railings
+  - The holes extend vertically down the entire side of the breadboard
+  - The two sides do not connect unless manually wired together  
+  - **The convention is:**
+    - **Positive = 5V or VCC**
+    - **Negative = Ground or GND**
+
+- The main holes in green are considered the standard connection points
+  - The holes extend horizontally until the the break in the middle (the red line)
+  - Each row of holes, noted by the number next to each, will represent the same inputted value
+    - E.g. If 5V is connected to one of the holes, all hole in that row will have 5V value (this is not limited to only 5V)
+
+- To connect any of the hole connections together, any wire plugged into two different pin hole connections will link them, including over the break gap (red line)
+
+![Breadboard-Explanation](Breadboard1.jpeg)
+
