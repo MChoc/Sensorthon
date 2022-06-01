@@ -23,29 +23,10 @@ Go here https://code.visualstudio.com/download and download the appropriate vers
 
 We have stored all our sample code on Github at https://github.com/MChoc/Sensorthon.
 
-Experience with Git and Github will be helpful for you when navigating and using our sample code. After cloning the repository, you will need to open each folder separately in VSCode to allow the PlatformIO extensions to detect the project.
+Experience with Git and Github will be helpful for you when navigating and using our sample code. After cloning the repository, you will need to open each folder separately via the PlatformIO homepage in VSCode to allow the PlatformIO extensions to detect the project.
 
-## Creating a new project
-
-1. Select the PlatformIO icon on the side bar of VSCode
-2. Click open on the PlatformIO menu
-3. Click "New Project"
-![PlatformIO_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_1.png)
-4. Give your project a name
-5. Choose M5Stack Core2 for the Board (if there are multiple just choose any one)
-6. Choose the Arduino Framework
-7. Choose a location to save the project
-![PlatformIO_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_2.png)
-
-## Opening a 
-
-1. Click on the PlatformIO extension icon
-2. Open the PlatformIO homepage
-3. Click on "Home"
-4. Click on "Open Project"
-5. Navigate to where you created/saved your project or open one of the examples
-![PlatformIO_Open_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_1.png)
-![PlatformIO_Open_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_project_2.png)
+If you know how to use Git, clone the repo to your local. Else, go to the above github link and download the file as a zip and unzip it.
+![Github](/Workshop/1.%20Environment%20Setup/Github.png)
 
 ## Determining your device
 
@@ -54,6 +35,18 @@ Experience with Git and Github will be helpful for you when navigating and using
 3. Click "Devices" on the PlatformIO homepage
 4. To determine which port your device is located at, you can disconnect your device, click refresh and then reconnect your device to see what the differences are. In the below example, mine is /dev/cu.SLAB_USBtoUART. This will be important when uploading your program to the device.
 ![PlatformIO_Devices](/Workshop/1.%20Environment%20Setup/PlatformIO_Devices.png)
+
+## Opening a project
+
+1. Click on the PlatformIO extension icon
+2. Open the PlatformIO homepage
+3. Click on "Home"
+4. Click on "Open Project" and navigate to where you created/saved your project and open one of the examples
+![PlatformIO_Open_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_1.png)
+![PlatformIO_Open_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_project_2.png)
+5. After opening the project, ensure that PlatformIO has been able to detect your project by checking that the name in brackets after "Default" is the name of your project
+6. Ensure that before running tasks the name of the tasks is the same as defined in your "platformio.ini" file
+![PlatformIO_Open_Project_3](/Workshop/1.%20Environment%20Setup/PlatformIO_Open_Project_3.png)
 
 ## Building and running
 
@@ -71,6 +64,21 @@ Useful tasks
 * Clean - deletes your build
 * Clean All - deletes your build and all builds in dependency builds
 * Erase Flash - deletes the current program from your device
+
+When building/uploading you may encounter the below error. This safe to ignore and close.
+![Error](/Workshop/1.%20Environment%20Setup/Error.png)
+
+## Creating a new project
+
+1. Select the PlatformIO icon on the side bar of VSCode
+2. Click open on the PlatformIO menu
+3. Click "New Project"
+![PlatformIO_Project_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_1.png)
+4. Give your project a name
+5. Choose M5Stack Core2 for the Board (if there are multiple just choose any one)
+6. Choose the Arduino Framework
+7. Choose a location to save the project
+![PlatformIO_Project_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Project_2.png)
 
 ## Downloading other libraries
 
