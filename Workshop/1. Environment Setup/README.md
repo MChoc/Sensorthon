@@ -6,6 +6,10 @@
 
 This is required as the Suncorp laptops are very locked down and you will need to be able to connect your EduKit to your computer to upload code, monitor output etc.
 
+### Drivers
+
+Go to https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers and download the driver most appropriate for your system you are running.
+
 ### Visual Studio Code
 
 Go here https://code.visualstudio.com/download and download the appropriate version of Visual Studio Code for your device
