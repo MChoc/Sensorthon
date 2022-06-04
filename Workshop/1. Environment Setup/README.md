@@ -8,6 +8,8 @@ This is required as the Suncorp laptops are very locked down and you will need t
 
 ### Drivers
 
+Some windows users may face issues around correctly connecting and uploading their device for the workshop. Pre-requeisite drivers may be required for the device to function.
+
 Go to https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers and download the driver most appropriate for your system you are running.
 
 ### Visual Studio Code
@@ -37,7 +39,7 @@ If you know how to use Git, clone the repo to your local. Else, go to the above 
 1. Click on the PlatformIO icon in the side bar
 2. Click "Open" on the PlatformIO menu
 3. Click "Devices" on the PlatformIO homepage
-4. To determine which port your device is located at, you can disconnect your device, click refresh and then reconnect your device to see what the differences are. In the below example, mine is /dev/cu.SLAB_USBtoUART. This will be important when uploading your program to the device.
+4. To determine which port your device is located at, you can disconnect your device, click refresh and then reconnect your device to see what the differences are. In the below example, the device is shown as ***/dev/cu.SLAB_USBtoUART***. This will vary according to your device. The name of this port will be important when uploading your program to the device.
 ![PlatformIO_Devices](/Workshop/1.%20Environment%20Setup/PlatformIO_Devices.png)
 
 ## Opening a project
