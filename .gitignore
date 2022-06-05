@@ -4,3 +4,4 @@
 **/*.crt
 **/*.key
 **/secrets.h
+SensorExp/
