@@ -5,3 +5,4 @@
 **/*.key
 **/secrets.h
 SensorExp/
+SmokeSensor/
