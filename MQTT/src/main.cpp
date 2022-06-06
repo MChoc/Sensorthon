@@ -15,6 +15,8 @@
 WiFiClientSecure wifiClient = WiFiClientSecure();
 MQTTClient mqttClient = MQTTClient(256);
 
+long lastMsg = 0;
+
 void connectWifi()
 {
   Serial.print("Attempting to connect to SSID: ");
@@ -98,20 +100,35 @@ void setup() {
 }
 
 void loop() {
-  // Initialise json object and print
-  StaticJsonDocument<200> jsonDoc;
-  jsonDoc["time"] = millis();
-  jsonDoc["team"] = TEAMNAME;
-  char jsonBuffer[512];
-  serializeJson(jsonDoc, jsonBuffer);
-
-  Serial.print("Publishing to " + AWS_IOT_PUBLISH_TOPIC + ": ");
-  Serial.println(jsonBuffer);
-
-  // Publish json to AWS IoT Core
-  mqttClient.publish(AWS_IOT_PUBLISH_TOPIC.c_str(), jsonBuffer);
+  // Reconnection Code if disconnected from the MQTT Client/Broker
+  if (!mqttClient.connected()) {
+    Serial.println("Device has disconnected from MQTT Broker, reconnecting...");
+    connectAWSIoTCore();
+  }
   mqttClient.loop();
 
-  // Send a message every 60 seconds
-  delay(60000);
+  long now = millis();
+  if (now - lastMsg > 30000) {
+    lastMsg = now;
+    // Initialise json object and print
+    StaticJsonDocument<200> jsonDoc;
+    char jsonBuffer[512];
+
+    JsonObject thingObject = jsonDoc.createNestedObject("ThingInformation");
+    thingObject["time"] = millis();
+    thingObject["team"] = TEAMNAME;
+
+    jsonDoc ["message"] = "Hello, this is transmitting from the Edukit";
+
+    serializeJsonPretty(jsonDoc, jsonBuffer);
+    Serial.println("");
+    Serial.print("Publishing to " + AWS_IOT_PUBLISH_TOPIC + ": ");
+    Serial.println(jsonBuffer);
+
+    M5.Lcd.clear();
+    M5.Lcd.printf("Message has been sent at %d", millis());
+
+    // Publish json to AWS IoT Core
+    mqttClient.publish(AWS_IOT_PUBLISH_TOPIC.c_str(), jsonBuffer);
+  }
 }
