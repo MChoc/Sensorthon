@@ -1,12 +1,12 @@
 # Sensor Basics
 
-****
+***
 
 The following outlines a brief summary of the various sensor types each participating team will be provided within the base kit.
 
 Further sensor recommendations not included in the base kit will be shown in a list at the end of this file, however these devices may be considered out of support scope, so please keep that in mind when considering usage of the suggested sensors.
 
-****
+***
 
 ## Temperature & Humidity Sensor
 
@@ -36,27 +36,6 @@ Further sensor recommendations not included in the base kit will be shown in a l
   - VCC (5V)
   - Ground
   - Digital Output Signal (Input for device)
-
-## Smoke Sensor
-
-![MQ-2-Smoke-Sensor](../3.3%20Sensor%20Basics/MQ-2-Smoke-Sensor/MQ-2-smoke-detector.jpeg)
-
-- MQ-2 Smoke Sensor Breakout module
-- Breakout module, compatible with multiple embedded development boards:
-  - Arduino
-  - Raspberry Pi
-  - ESP32
-- Device able to detect not only smoke concentration in the surrounding air according to ppm (parts per million) but also detect:
-  - LPG
-  - Alcohol
-  - Propane
-  - Hydrogen
-  - Methane
-  - Carbon Monoxide
-- Main connections:
-  - VCC (5V)
-  - Ground
-  - Analog Output signal
 
 ## Water Detection Sensor
 
@@ -104,3 +83,51 @@ Further sensor recommendations not included in the base kit will be shown in a l
   - VCC (5V)
   - Ground
   - Analog Output Signal
+
+## Smoke Sensor
+
+![MQ-2-Smoke-Sensor](../3.3%20Sensor%20Basics/MQ-2-Smoke-Sensor/MQ-2-smoke-detector.jpeg)
+
+- MQ-2 Smoke Sensor Breakout module
+- Breakout module, compatible with multiple embedded development boards:
+  - Arduino
+  - Raspberry Pi
+  - ESP32
+- Device able to detect not only smoke concentration in the surrounding air according to ppm (parts per million) but also detect:
+  - LPG
+  - Alcohol
+  - Propane
+  - Hydrogen
+  - Methane
+  - Carbon Monoxide
+- Main connections:
+  - VCC (5V)
+  - Ground
+  - Analog Output signal
+
+***
+
+## Other recommended Sensors
+
+Several other devices below are recommendations for further devices if you would like to expand your arsenal of sensors. Please note these are all purchased at your own discretion.
+
+- Smoke Sensor:
+  - <https://www.jaycar.com.au/smoke-detector-module/p/XC4470?pos=2&queryId=61a1ece681df1f2406d401e94b3805bb>
+
+- Hall Effect Sensor:
+  - <https://www.jaycar.com.au/arduino-compatible-hall-effect-sensor-module/p/XC4434>
+
+- Light Sensor:
+  - <https://www.jaycar.com.au/arduino-compatible-photosensitive-ldr-sensor-module/p/XC4446>
+
+- Ultraviolet Sensor:
+  - <https://www.jaycar.com.au/arduino-compatible-ultraviolet-sensor-module/p/XC4518>
+
+- Barometric Pressure Sensor:
+  - <https://www.jaycar.com.au/barometric-pressure-sensor-module/p/XC3702>
+
+- Thin Pressure Sensor:
+  - <https://www.jaycar.com.au/thin-film-pressure-sensor-for-arduino/p/XC3738>
+
+- Air Quality Sensor:
+  - <https://www.jaycar.com.au/duinotech-air-quality-sensor-with-co2-temperature/p/XC3782>
