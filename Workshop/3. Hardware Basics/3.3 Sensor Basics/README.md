@@ -22,6 +22,7 @@ Further sensor recommendations not included in the base kit will be shown in a l
   - VCC (5V)
   - Ground
   - Digital Output Signal (Input for device)
+- Check the DHT11 folder for the pinout configuration of the device
 
 ## Flame Sensor
 
@@ -36,6 +37,8 @@ Further sensor recommendations not included in the base kit will be shown in a l
   - VCC (5V)
   - Ground
   - Digital Output Signal (Input for device)
+- Check the DFR0076 folder for the pinout configuration of the device
+
 
 ## Water Detection Sensor
 
@@ -66,6 +69,8 @@ Further sensor recommendations not included in the base kit will be shown in a l
   - VCC (5V)
   - Ground
   - Digital Output signal
+- Check the XC4444 folder for the pinout configuration of the device
+
 
 ## Magnetic Sensor
 
