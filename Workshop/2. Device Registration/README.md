@@ -16,12 +16,14 @@
 10. Check the provided Sensorthon_EduKit_Policy
 11. Click "Create thing"
 ![Register_Thing_Policy](/Workshop/2.%20Device%20Registration/Register_Thing_Policy.png)
-12. Download all 5 certificates and save them in the MQTT folder at the root of this project (these will be needed later to communicate securely with AWS IoT Core). When downloading, rename the certificates according to the naming scheme below. We will be referring to them by these names in further workshops.
+12. Download all 5 certificates and save them in the MQTT folder within the Sensorthon Github cloned/downloaded previously (these will be needed later to communicate securely with AWS IoT Core). When downloading, rename the certificates according to the naming scheme below. We will be referring to them by these names in further workshops.
 ![Certificates](/Workshop/2.%20Device%20Registration/Certificates.png)
-13. Open the MQTT folder in Sensorthon via PlatformIO using the same method you learned before. Open the include folder and you should see a file called secrets_template.h. Rename this or make a copy then rename to secrets.h and fill in the file (https://github.com/MChoc/Sensorthon/blob/main/MQTT/include/secrets_template.h). **Follow the comments to determine which certificate to copy to each line of code**
+13. Open the MQTT folder in Sensorthon via PlatformIO using the same method you learned before. Open the include folder and you should see a file called secrets_template.h. Rename this or make a copy then rename to secrets.h and fill in the file (https://github.com/MChoc/Sensorthon/blob/main/MQTT/include/secrets_template.h). **Follow the comments to determine which certificate to copy to each line of code.** <br>
+Note: The certificate contents include the "BEGIN" and "END" lines of the certificate.
 14. Build and upload this program to your EduKit using the same method you've learned before.
 
 # AWS MQTT Test Client
+To test and see what the MQTT code does with your secrets correctly implemented, go back to the AWS Console and do the following:
 
 ## Subscribe
 
