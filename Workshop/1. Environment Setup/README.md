@@ -95,8 +95,15 @@ When building/uploading you may encounter the below error. This safe to ignore a
 1. Click the PlatformIO icon
 2. Click open to bring up the PlatformIO interface
 3. Click on "Libraries"
-4. Search for the library you need
-![PlatformIO_Libraries](/Workshop/1.%20Environment%20Setup/PlatformIO_Libraries.png)
+4. Search for "M5Core2"
+5. Click the search icon
+6. Choose the option "M5Core2 by M5Stack"
+![PlatformIO_Libraries_1](/Workshop/1.%20Environment%20Setup/PlatformIO_Libraries_1.png)
+7. Click the blue "Add to Project" button
+![PlatformIO_Libraries_2](/Workshop/1.%20Environment%20Setup/PlatformIO_Libraries_2.png)
+8. Click on the "Select a project" dropdown and choose the project you just created
+9. Click "Add" to finalise the installation
+![PlatformIO_Libraries_3](/Workshop/1.%20Environment%20Setup/PlatformIO_Libraries_3.png)
 
 ### Manually
 
