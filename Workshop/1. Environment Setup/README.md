@@ -44,6 +44,8 @@ If you know how to use Git, clone the repo to your local. Else, go to the above 
 4. To determine which port your device is located at, you can disconnect your device, click refresh and then reconnect your device to see what the differences are. In the below example, the device is shown as ***/dev/cu.SLAB_USBtoUART***. This will vary according to your device. The name of this port will be important when uploading your program to the device.
 ![PlatformIO_Devices](/Workshop/1.%20Environment%20Setup/PlatformIO_Devices.png)
 
+Window Users: At times the port may not appear correctly as you have recently installed the driver mentioned above. Please restart VSCode and if still persists, your computer.
+
 ## Opening a project
 
 1. Click on the PlatformIO extension icon
