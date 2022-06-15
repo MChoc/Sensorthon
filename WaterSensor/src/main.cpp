@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <M5Core2.h>
 
-#define ADCPIN 36 // Aanlogue to Digital Pin
-#define DACPIN 26 // Digital to Analogue Pin
+#define ADCPIN 36 // Analogue to Digital, Yellow Edukit Cable 
+#define DACPIN 26 // Digital to Analogue, White Edukit Cable
 
 void setup() {
   bool LCDEnable = true;
