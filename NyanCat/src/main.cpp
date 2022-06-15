@@ -61,13 +61,13 @@ void initialiseAudio()
   }
   M5.Lcd.println("SD card initialised");
 
-  if (SD.exists("/NyanCat.mp3"))
+  if (SD.exists("/NyanCat.wav"))
   {
-    Serial.println("NyanCat.mp3 exists");
+    Serial.println("NyanCat.wav exists");
   }
   else
   {
-    Serial.println("NyanCat.mp3 doesn't exist");
+    Serial.println("NyanCat.wav doesn't exist");
   }
 
   // Load wav file
