@@ -3,8 +3,8 @@
 #include <DHT.h>
 #include <M5Core2.h>
 
-#define ADCPIN 36
-#define DACPIN 26
+#define ADCPIN 36 // Analogue to Digital, Yellow Edukit Cable 
+#define DACPIN 26 // Digital to Analogue, White Edukit Cable
 #define DHTTYPE DHT11
 
 DHT dht(DACPIN, DHTTYPE);
