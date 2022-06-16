@@ -47,56 +47,7 @@ void audioTask(void *pvParameters)
   }
 }
 
-void initialiseAudio()
-{
-  // Enable speaker
-  M5.Axp.SetSpkEnable(true);
-
-  // Initialise SD card slot
-  if (!SD.begin())
-  {
-    Serial.println("SD card failed to mount or not present");
-    while (1)
-      ;
-  }
-  M5.Lcd.println("SD card initialised");
-
-  if (SD.exists("/NyanCat.wav"))
-  {
-    Serial.println("NyanCat.wav exists");
-  }
-  else
-  {
-    Serial.println("NyanCat.wav doesn't exist");
-  }
-
-  // Load wav file
-  file = new AudioFileSourceSD("/NyanCat.wav");
-  id3 = new AudioFileSourceID3(file);
-  out = new AudioOutputI2S(0, 0);
-  out->SetPinout(12, 0, 2);
-  out->SetOutputModeMono(true);
-  out->SetGain((float)OUTPUT_GAIN / 100.0);
-  wav = new AudioGeneratorWAV();
-  wav->begin(id3, out);
-}
-
-void setup()
-{
-  Serial.begin(115200);
-  M5.begin();
-
-  initialiseAudio();
-
-  // Specify LED pins
-  FastLED.addLeds<SK6812, LED_PINS>(leds, NUM_LEDS);
-
-  // Create tasks that be run in parallel
-  xTaskCreatePinnedToCore(rainbowTask, "rainbow", 4096, NULL, 1, NULL, 0);
-  xTaskCreatePinnedToCore(audioTask, "audio", 4096, NULL, 3, NULL, 0);
-}
-
-void loop()
+void animationTask(void *pvParameters)
 {
   for (int z = 0; z < 12; z++)
   {
@@ -166,4 +117,58 @@ void loop()
       }
     }
   }
+}
+
+void initialiseAudio()
+{
+  // Enable speaker
+  M5.Axp.SetSpkEnable(true);
+
+  // Initialise SD card slot
+  if (!SD.begin())
+  {
+    Serial.println("SD card failed to mount or not present");
+    while (1)
+      ;
+  }
+  M5.Lcd.println("SD card initialised");
+
+  if (SD.exists("/NyanCat.wav"))
+  {
+    Serial.println("NyanCat.wav exists");
+  }
+  else
+  {
+    Serial.println("NyanCat.wav doesn't exist");
+  }
+
+  // Load wav file
+  file = new AudioFileSourceSD("/NyanCat.wav");
+  id3 = new AudioFileSourceID3(file);
+  out = new AudioOutputI2S(0, 0);
+  out->SetPinout(12, 0, 2);
+  out->SetOutputModeMono(true);
+  out->SetGain((float)OUTPUT_GAIN / 100.0);
+  wav = new AudioGeneratorWAV();
+  wav->begin(id3, out);
+}
+
+void setup()
+{
+  Serial.begin(115200);
+  M5.begin();
+
+  initialiseAudio();
+
+  // Specify LED pins
+  FastLED.addLeds<SK6812, LED_PINS>(leds, NUM_LEDS);
+
+  // Create tasks that be run in parallel
+  xTaskCreatePinnedToCore(rainbowTask, "rainbow", 4096, NULL, 1, NULL, 0);
+  // xTaskCreatePinnedToCore(animationTask, "animation", 4096, NULL, 3, NULL, 0);
+}
+
+void loop()
+{
+  audioTask(NULL);
 }
